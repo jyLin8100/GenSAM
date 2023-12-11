@@ -8,8 +8,8 @@
 [[Project Page]](https://lwpyh.github.io/GenSAM/)
 
 ## :rocket: Updates
-* **[2023.12.10]**  LLaVA1 and LLaVA1.5 version GenSAM is realeased.
-* **[2023.12.9]**  BLIP2 version GenSAM is realeased.
+* **[2023.12.10]**  LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is realeased.
+* **[2023.12.9]**  BLIP2 version GenSAM on CHAMELEON dataset is realeased.
 
 A brief introduction of how we GenSAM do!
 <img src='AIG_framework_v2.png'>
