@@ -1,7 +1,7 @@
 # Official repo for GenSAM
 **GenSAM: Exploring Text Prompts without Visual Prompts in Segmentation**
 
-[Jian Hu*](https://lwpyh.github.io/),, [Jiayi Lin*](https://jylin8100.github.io/), [Weitong Cai](https://lvgd.github.io/), [Shaogang Gong](http://www.eecs.qmul.ac.uk/~sgg/)
+[Jian Hu*](https://lwpyh.github.io/),, [Jiayi Lin*](https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH70aAW7LfVn82AZckFTh_Y7mXPPLrqDH6LMWDXLBCTbnSLe39ue9Iiza6jy5HDuReAozF5HnWECuq9xlCXrlw&user=l4Fps4EAAAAJ), [Weitong Cai](https://lvgd.github.io/), [Shaogang Gong](http://www.eecs.qmul.ac.uk/~sgg/)
 
 [[Arxiv]](https://arxiv.org/abs/) 
 [[Project Page]](https://lwpyh.github.io/GenSAM/)
