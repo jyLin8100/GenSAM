@@ -5,8 +5,8 @@
 
 [Jian Hu*](https://lwpyh.github.io/),, [Jiayi Lin*](https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH70aAW7LfVn82AZckFTh_Y7mXPPLrqDH6LMWDXLBCTbnSLe39ue9Iiza6jy5HDuReAozF5HnWECuq9xlCXrlw&user=l4Fps4EAAAAJ), [Weitong Cai](https://lvgd.github.io/), [Shaogang Gong](http://www.eecs.qmul.ac.uk/~sgg/)
 
-[[Arxiv]](https://arxiv.org/abs/) 
-[[Project Page]](https://lwpyh.github.io/GenSAM/)
+🖋[[Arxiv]](https://arxiv.org/abs/) 
+:computer: [[Project Page]](https://lwpyh.github.io/GenSAM/)
 
 ## :rocket: Updates
 * **[2023.12.10]**  LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is realeased.
