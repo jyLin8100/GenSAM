@@ -32,6 +32,6 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 ``` -->
 
  ## TO-DO LIST
-- [ ] Update datasets and implementation scripts
+- [x] Update datasets and implementation scripts
 - [ ] Keep incorporating more capabilities
 - [ ] Demo and Codes
