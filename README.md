@@ -8,8 +8,8 @@
 [[Project Page]](https://lwpyh.github.io/GenSAM/)
 
 ## :rocket: Updates
-* **[2023.12.10]**  LLaVA1 and LLaVA1.5 version GenSAM is realeased in [LLaVA-Interactive](https://llava-vl.github.io/llava-interactive/): an all-in-one demo for Image Chat, Segmentation, Generation and Editing. Experience the future of interactive image editing with visual chat.
-* **[2023.12.9]**  BLIP2 version GenSAM is realeased in [LLaVA-Interactive](https://llava-vl.github.io/llava-interactive/): an all-in-one demo for Image Chat, Segmentation, Generation and Editing. Experience the future of interactive image editing with visual chat.
+* **[2023.12.10]**  LLaVA1 and LLaVA1.5 version GenSAM is realeased.
+* **[2023.12.9]**  BLIP2 version GenSAM is realeased.
 * 
 ## Abstract
 
