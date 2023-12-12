@@ -13,7 +13,7 @@
 * **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is realeased.
 * **[2023.12.9]**  BLIP2 version GenSAM on CHAMELEON dataset is realeased.
 
-![PDF Image]('supp_cod.pdf')
+<img src='supp_cod.png'>
 
 ## :bulb: Abstract
 
