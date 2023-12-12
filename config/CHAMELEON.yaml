@@ -44,7 +44,6 @@ clip_use_bg_text: true # store_true, background text input for clip surgery
 clip_bg_strategy: FgBgHm # for clip surgery'); [FgBgHm, FgBgHmClamp]
 down_sample: 0.5 #, help='down sample to generate points from CLIP surgery output')
 attn_thr: 0.9 # help='threshold for CLIP Surgery to get points from attention map')
-use_adaptive_thr: false # store_true
 
 
 ## SAM
