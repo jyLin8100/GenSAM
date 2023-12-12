@@ -1,4 +1,4 @@
-# :fire: GenSAM (AAAI2024)
+# :fire: GenSAM (AAAI 2024)
 
 Code release of paper:
 
