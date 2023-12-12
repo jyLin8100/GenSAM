@@ -31,6 +31,17 @@ Camouflaged object detection (COD) approaches heavily rely on pixel-level annota
 python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_path train_ano/
 ``` -->
 
+## GenSAM Playground ##
+
+# Running GenSAM on CHAMELON dataset
+```
+python main.py --config config/CHAMELON.yaml --visualization 
+```
+or
+```
+sh script_llava.sh
+``` 
+
  ## TO-DO LIST
 - [x] Update datasets and implementation scripts
 - [ ] Keep incorporating more capabilities
