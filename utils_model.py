@@ -51,7 +51,6 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
     cur_image = ori_image
     if is_visualization:  vis_input_img.append(cur_image.astype('uint8'))
     with torch.no_grad():
-        flag_terminate = False
         for i in range(args.recursive+1):
             if i>=1 and args.update_text:
                 cur_image_pil=pil_img
@@ -125,14 +124,6 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
             mask = mask_logit_origin > sam_predictor.model.mask_threshold
             mask_logit = F.sigmoid(torch.from_numpy(mask_logit_origin)).numpy()
 
-            delta_thr = 0.003
-
-            if i>0:
-                prob_delta_list.append(np.mean(np.abs(mask_logit-mask_logit_l[-1])))
-                if i>1 and np.abs(prob_delta_list[-1]-prob_delta_list[-2])<delta_thr and prob_delta_list[-1]<delta_thr:
-                    print('break (prob_delta_list & delta of prob_delta_list delta_thr)\t',i, delta_thr)
-                    flag_terminate=True
-
 
             # update input image for next iter
             sm1 = sm_logit
@@ -154,8 +145,6 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
             num_l.append(num)
             mask_l.append(mask)
             mask_logit_origin_l.append(mask_logit_origin)
-            if flag_terminate:
-                break
 
         if is_visualization:
             vis_dict = {
@@ -509,38 +498,16 @@ def heatmap2points(sm, sm_mean, np_img, args, attn_thr=-1, is_visualization=Fals
     if attn_thr < 0:
         attn_thr = args.attn_thr
     map_l=[]
-    if args.use_adaptive_thr:
-        p, l, map1, map = clip.similarity_map_to_points(sm_mean, cv2_img.shape[:2], cv2_img, t=attn_thr, down_sample=args.down_sample) # p: [pos (min->max), neg(max->min)]
-        map_l.append(map)
-        num = len(p) // 2
-        map_pos = map[:num]
-        map_neg = map[num:] # negatives in the second half
-
-        if num == 1:
-            labels = [0,1]
-            points = [p[1]] + [p[0]]
-        else:
-            num_min, num_max = one_dimensional_kmeans_with_min_max(map_neg, 2)
-            points_neg = p[num:num+num_min]
-            points = points_neg
-            labels = [0] * num_min
-            num_min, num_max = one_dimensional_kmeans_with_min_max(map_pos, 2)
-            points_pos = p[num-num_max:num]
-            points = points + points_pos # positive in first half
-            labels_1 = [1] * num_max
-            labels.extend(labels_1)
-    else:
-
-        p, l, map, _ = clip.similarity_map_to_points(sm_mean, cv2_img.shape[:2], cv2_img, t=attn_thr,
+    p, l, map, _ = clip.similarity_map_to_points(sm_mean, cv2_img.shape[:2], cv2_img, t=attn_thr,
                                                     down_sample=args.down_sample) # p: [pos (min->max), neg(max->min)]
-        map_l.append(map)
-        num = len(p) // 2
-        points = p[num:] # negatives in the second half
-        labels = [l[num:]]
+    map_l.append(map)
+    num = len(p) // 2
+    points = p[num:] # negatives in the second half
+    labels = [l[num:]]
 
-        points = points + p[:num] # positive in first half
-        labels.append(l[:num])
-        labels = np.concatenate(labels, 0)
+    points = points + p[:num] # positive in first half
+    labels.append(l[:num])
+    labels = np.concatenate(labels, 0)
     vis_radius = []
     if is_visualization:
         vis_radius = [np.linspace(5,2,num)]
