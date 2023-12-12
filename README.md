@@ -61,11 +61,11 @@ pip install ftfy
 ```
 2. Our GenSAM is a training-free test-time adaptation approach, so you can play with it by running:
 ```bash
-python main.py --config config/CHAMELON_LLaVA1.5.yaml --visualization
+python main.py --config config/CHAMELON_LLaVA1.5.yaml
 ```
-or
+if you want to visualize the output picture during test-time adaptation, you can running:
 ```bash
-sh script_llava.sh
+python main.py --config config/CHAMELON_LLaVA1.5.yaml --visualization
 ``` 
 ## Citation
 
