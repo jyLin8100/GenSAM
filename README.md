@@ -43,7 +43,12 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 - **[CAMO](https://drive.google.com/open?id=1h-OqZdwkuPhBvGcVAwmh0f1NGqlH_4B6)**
 - **[CHAMELEON](https://www.polsl.pl/rau6/datasets/)**
 2. Put it in ./data/.
-### Running GenSAM on CHAMELON Dataset
+### Running GenSAM on CHAMELON Dataset with LLaVA1/LLaVA1.5
+1. When playing with LLaVA, this code was implemented with Python 3.8 and PyTorch 2.1.0. You can install all the requirements via:
+```bash
+pip install -r requirements_llava.txt
+```
+2. Our GenSAM is a training-free test-time adaptation approach, so you can play with it by running:
 ```bash
 python main.py --config config/CHAMELON.yaml --visualization --LLaVA 
 ```
