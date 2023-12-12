@@ -20,8 +20,8 @@ load_in_8bit: false # for blip only
 
 # text prompt
 prompt_q: 3attriTheBgSynCamo
-use_gene_prompt: true # store_true, use generic prompt w/o VLM
-use_gene_prompt_fg: true # store_true, use generic prompt for foreground, for exact object')  # Note: only completed for LLaVA
+use_gene_prompt: false # store_true, use generic prompt w/o VLM
+use_gene_prompt_fg: false # store_true, use generic prompt for foreground, for exact object')  # Note: only completed for LLaVA
 update_text: true # store_true, update text with VLM for each iteration')
 check_exist_each_iter: false # only for multiple classes segmentation, check if a certain class exists
 
