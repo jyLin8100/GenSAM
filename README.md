@@ -1,4 +1,4 @@
-# :fire: Official repo for GenSAM
+# :fire: Official Repo for GenSAM
 ***AAAI*** **2024** 
 
 **Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects**
