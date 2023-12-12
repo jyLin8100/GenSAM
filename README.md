@@ -37,7 +37,8 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 
 ### Download Dataset
 1. Download the datasets from the follow links:
-#### Camouflaged Object Detection
+   
+**Camouflaged Object Detection Dataset**
 - **[COD10K](https://github.com/DengPingFan/SINet/)**
 - **[CAMO](https://drive.google.com/open?id=1h-OqZdwkuPhBvGcVAwmh0f1NGqlH_4B6)**
 - **[CHAMELEON](https://www.polsl.pl/rau6/datasets/)**
