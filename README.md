@@ -10,7 +10,7 @@ Code release of paper:
 <a href='https://lwpyh.github.io/GenSAM/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 
 ## :rocket: Updates
-* **[2023.12.11]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
+* **[2023.12.12]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
 * **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is realeased.
 
 <img src='supp_cod.png'>
