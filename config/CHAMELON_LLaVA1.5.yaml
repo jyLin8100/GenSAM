@@ -15,7 +15,7 @@ test_dataset:
 
 
 ## VLM
-llm: LLaVA #  [blip, LLaVA, LLaVA1.5]
+llm: LLaVA1.5 #  [blip, LLaVA, LLaVA1.5]
 load_in_8bit: false # for blip only
 
 # text prompt
