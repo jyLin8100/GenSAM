@@ -72,15 +72,19 @@ if model_args.llm=='blip':
         'model': BLIP_model,
         'vis_processors':  BLIP_vis_processors,
     }
-elif model_args.llm=='LLaVA':
+elif model_args.llm=='LLaVA' or model_args.llm=='LLaVA1.5':
     from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
     from llava.conversation import conv_templates, SeparatorStyle
     from llava.model.builder import load_pretrained_model
     from llava.utils import disable_torch_init
     from llava.mm_utils import tokenizer_image_token, get_model_name_from_path, KeywordsStoppingCriteria
     disable_torch_init()
-    print(f'llava pretrained model: {model_args.model_path}')
-    model_path = os.path.expanduser(model_args.model_path)
+    if model_args.llm=='LLaVA':
+        model_path = 'liuhaotian/llava-llama-2-13b-chat-lightning-preview'
+    else:
+        model_path = 'liuhaotian/llava-v1.5-13b'
+    print(f'llava pretrained model: {model_path}')
+    model_path = os.path.expanduser(model_path)
     model_args.model_name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(model_path, model_args.model_base, model_args.model_name)
     if 'llama-2' in model_args.model_name.lower(): # from clip.py
