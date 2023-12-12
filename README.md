@@ -45,7 +45,7 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 2. Put it in ./data/.
 ### Running GenSAM on CHAMELON Dataset
 ```bash
-python main.py --config config/CHAMELON.yaml --visualization 
+python main.py --config config/CHAMELON.yaml --visualization --LLaVA 
 ```
 or
 ```bash
