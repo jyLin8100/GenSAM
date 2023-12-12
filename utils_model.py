@@ -285,7 +285,7 @@ def get_text_from_img(pil_img, prompt_q, llm_dict, use_gene_prompt, get_bg_text,
             return get_text_from_img_blip(pil_img, prompt_q,
                         model, vis_processors,
                         get_bg_text=get_bg_text,)
-        elif args.llm=='LLaVA':
+        elif args.llm=='LLaVA' or args.llm=='LLaVA1.5':
             tokenizer = llm_dict['tokenizer']
             conv_mode = llm_dict['conv_mode']
             temperature = llm_dict['temperature']
@@ -515,47 +515,6 @@ def heatmap2points(sm, sm_mean, np_img, args, attn_thr=-1, is_visualization=Fals
         vis_radius = np.concatenate(vis_radius, 0).astype('uint8')
 
     return points, labels, vis_radius, num
-
-
-def get_dir_from_args(args, parent_dir='output_img/'):
-    text_filename = f'{args.llm}Text'
-    if args.update_text:
-        text_filename += 'Update'
-    parent_dir += f'{text_filename}/'
-
-    exp_name = ''
-    exp_name += f's{args.down_sample}_thr{args.attn_thr}'
-    if args.recursive > 0:
-        exp_name += f'_rcur{args.recursive}'
-        if args.recursive_coef!=.3:
-            exp_name += f'_{args.recursive_coef}'
-    if args.rdd_str != '':
-        exp_name += f'_rdd{args.rdd_str}'
-    if args.clip_attn_qkv_strategy!='vv':
-        exp_name += f'_qkv{args.clip_attn_qkv_strategy}'
-        
-    if args.clipInputEMA:  # darken
-        exp_name += f'_clipInputEMA'
-
-    if args.post_mode !='':
-        exp_name += f'_post{args.post_mode}'
-    if args.prompt_q!='Name of hidden animal in one word':
-        exp_name += f'_prompt_q{args.prompt_q}'
-        if args.use_gene_prompt:
-            exp_name += 'Gene'
-        if args.use_gene_prompt_fg:
-            exp_name += 'GeneFg'
-    if args.clip_use_bg_text:
-        exp_name += f'_{args.clip_bg_strategy}'
-
-    if args.llm=='LLaVA' and args.LLaVA_w_caption:
-        exp_name += f'_shortCaption'
-
-
-    save_path_dir = f'{parent_dir+exp_name}/'
-    printd(f'{exp_name} ({args}')
-
-    return save_path_dir
 
 
 def one_dimensional_kmeans_with_min_max(data, k, max_iterations=100):
