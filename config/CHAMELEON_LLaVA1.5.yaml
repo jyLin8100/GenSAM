@@ -1,0 +1,63 @@
+
+test_dataset:
+  dataset:
+    name: paired-image-folders
+    args:
+      root_path_1: ./data/CHAMELEON_TestingDataset/Image
+      root_path_2: ./data/CHAMELEON_TestingDataset/GT
+      cache: none
+      split_key: test
+  wrapper:
+    name: val
+    args:
+      inp_size: 1024
+  batch_size: 1
+
+
+## VLM
+llm: LLaVA #  [blip, LLaVA]
+load_in_8bit: false # for blip only
+
+# text prompt
+prompt_q: 3attriTheBgSynCamo
+use_gene_prompt: false # store_true, use generic prompt w/o VLM
+use_gene_prompt_fg: false # store_true, use generic prompt for foreground, for exact object')  # Note: only completed for LLaVA
+update_text: true # store_true, update text with VLM for each iteration')
+check_exist_each_iter: false # only for multiple classes segmentation, check if a certain class exists
+
+# llava
+LLaVA_w_caption: true # store_true
+model_path: liuhaotian/liuhaotian/llava-v1.5-13b (llava1.5)
+model_base: null
+num_chunks: 1
+chunk_idx: 0
+temperature: 0.2
+top_p: null
+num_beams: 1
+
+
+## Spatial CLIP 
+clip_model: CS-ViT-B/16 #      model for clip surgery')
+rdd_str: '' # help='text for redundant features as input of clip surgery')
+clip_attn_qkv_strategy: kk # qkv attention strategy for clip surgery; [vv(original), kk]
+clip_use_bg_text: true # store_true, background text input for clip surgery
+clip_bg_strategy: FgBgHm # for clip surgery'); [FgBgHm, FgBgHmClamp]
+down_sample: 0.5 #, help='down sample to generate points from CLIP surgery output')
+attn_thr: 0.9 # help='threshold for CLIP Surgery to get points from attention map')
+
+
+## SAM
+sam_checkpoint: sam_vit_h_4b8939.pth  
+sam_model_type: vit_h 
+
+
+## iteration
+recursive: 5 # help='recursive times to use CLIP surgery, to get the point')
+recursive_coef: 0.3 #, help='recursive coefficient to use CLIP surgery, to get the point')
+clipInputEMA: true # store_true')
+post_mode: 'MaxIOUBoxSAMInput' 
+
+
+
+
+
