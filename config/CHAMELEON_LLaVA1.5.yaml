@@ -15,7 +15,7 @@ test_dataset:
 
 
 ## VLM
-llm: LLaVA #  [blip, LLaVA]
+llm: LLaVA1.5 #  [blip, LLaVA, LLaVA1.5]
 load_in_8bit: false # for blip only
 
 # text prompt
@@ -27,7 +27,6 @@ check_exist_each_iter: false # only for multiple classes segmentation, check if 
 
 # llava
 LLaVA_w_caption: true # store_true
-model_path: liuhaotian/liuhaotian/llava-v1.5-13b (llava1.5)
 model_base: null
 num_chunks: 1
 chunk_idx: 0
