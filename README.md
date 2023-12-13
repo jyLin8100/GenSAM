@@ -44,30 +44,30 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 - **[CHAMELEON](https://www.polsl.pl/rau6/datasets/)**
 2. Put it in ./data/.
 ### Running GenSAM on CHAMELON Dataset with LLaVA1/LLaVA1.5
-1. When playing with LLaVA, this code was implemented with Python 3.8 and PyTorch 2.1.0. You can install all the requirements via:
+1. When playing with LLaVA, this code was implemented with Python 3.8 and PyTorch 2.1.0. We recommend creating [virtualenv](https://virtualenv.pypa.io/) environment and installing all the dependencies, as follows:
 ```bash
+# create virtual environment
 virtualenv GenSAM_LLaVA
 source GenSAM_LLaVA/bin/activate
+# prepare LLaVA
 git clone https://github.com/haotian-liu/LLaVA.git
 cd LLaVA
 pip install -e .
 cd ..
+# prepare SAM
 pip install git+https://github.com/facebookresearch/segment-anything.git
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
-pip install opencv-python
-pip install imageio
-pip install urllib3==1.26.6
-pip install ftfy
+pip install opencv-python imageio ftfy urllib3==1.26.6
 ```
 2. Our GenSAM is a training-free test-time adaptation approach, so you can play with it by running:
 ```bash
-python main.py --config config/CHAMELON_LLaVA1.5.yaml   ###LLaVA1.5
-python main.py --config config/CHAMELON_LLaVA.yaml   ###LLaVA
+python main.py --config config/CHAMELEON_LLaVA1.5.yaml   ###LLaVA1.5
+python main.py --config config/CHAMELEON_LLaVA.yaml   ###LLaVA
 ```
 if you want to visualize the output picture during test-time adaptation, you can running:
 ```bash
-python main.py --config config/CHAMELON_LLaVA1.5.yaml --visualization    ###LLaVA1.5
-python main.py --config config/CHAMELON_LLaVA.yaml --visualization    ###LLaVA
+python main.py --config config/CHAMELEON_LLaVA1.5.yaml --visualization    ###LLaVA1.5
+python main.py --config config/CHAMELEON_LLaVA.yaml --visualization    ###LLaVA
 ```
 
  ## TO-DO LIST
