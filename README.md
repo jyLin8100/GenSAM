@@ -6,7 +6,7 @@ Code release of paper:
 
 [Jian Hu*](https://lwpyh.github.io/), [Jiayi Lin*](https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AH70aAW7LfVn82AZckFTh_Y7mXPPLrqDH6LMWDXLBCTbnSLe39ue9Iiza6jy5HDuReAozF5HnWECuq9xlCXrlw&user=l4Fps4EAAAAJ), [Weitong Cai](https://lvgd.github.io/), [Shaogang Gong](http://www.eecs.qmul.ac.uk/~sgg/)
 
-<a href='https://arxiv.org/abs/'><img src='https://img.shields.io/badge/ArXiv--red' /></a> 
+<a href='https://arxiv.org/abs/2312.07374'><img src='https://img.shields.io/badge/ArXiv-2312.07374-red' /></a> 
 <a href='https://lwpyh.github.io/GenSAM/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 
 ## :rocket: Updates
