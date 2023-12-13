@@ -68,14 +68,32 @@ if you want to visualize the output picture during test-time adaptation, you can
 ```bash
 python main.py --config config/CHAMELON_LLaVA1.5.yaml --visualization    ###LLaVA1.5
 python main.py --config config/CHAMELON_LLaVA.yaml --visualization    ###LLaVA
-``` 
+```
+
+ ## TO-DO LIST
+- [x] Update datasets and implementation scripts
+- [ ] Keep incorporating more capabilities
+- [ ] Demo and Codes
+
+
 ## Citation
 
 If you find our work useful in your research, please consider citing:
 
 ```
+@misc{hu2023relax,
+      title={Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects}, 
+      author={Jian Hu and Jiayi Lin and Weitong Cai and Shaogang Gong},
+      year={2023},
+      eprint={2312.07374},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
- ## TO-DO LIST
-- [x] Update datasets and implementation scripts
-- [ ] Keep incorporating more capabilities
-- [ ] Demo and Codes
+
+## :cupid: Acknowledgements
+
+- [Segment Anything](https://github.com/facebookresearch/segment-anything)
+- [LLaVA](https://github.com/haotian-liu/LLaVA)
+- [CLIP Surgery](https://github.com/xmed-lab/CLIP_Surgery)
+
