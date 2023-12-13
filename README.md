@@ -46,8 +46,8 @@ python data_to_llava.py --image_path train_set/ --prompt_path dataset/ --save_pa
 ### Running GenSAM on CHAMELON Dataset with LLaVA1/LLaVA1.5
 1. When playing with LLaVA, this code was implemented with Python 3.8 and PyTorch 2.1.0. You can install all the requirements via:
 ```bash
-conda create -n GenSAM_LLaVA python=3.8 -y
-conda activate GenSAM_LLaVA
+virtualenv GenSAM_LLaVA
+source GenSAM_LLaVA/bin/activate
 git clone https://github.com/haotian-liu/LLaVA.git
 cd LLaVA
 pip install -e .
