@@ -95,5 +95,6 @@ If you find our work useful in your research, please consider citing:
 
 - [Segment Anything](https://github.com/facebookresearch/segment-anything)
 - [LLaVA](https://github.com/haotian-liu/LLaVA)
+- [BLIP2](https://github.com/salesforce/LAVIS/tree/main/projects/blip2)
 - [CLIP Surgery](https://github.com/xmed-lab/CLIP_Surgery)
 
