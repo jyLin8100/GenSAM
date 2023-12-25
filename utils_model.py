@@ -44,6 +44,7 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
         vis_mask_l = []
         points_l = []
         labels_l = []
+        sm_fg_bg_l = []
 
     ori_image = np.array(pil_img)
     sam_predictor.set_image(ori_image)
@@ -63,14 +64,15 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
                 print(f'iter {i} text:\t{text}, {text_bg}')
                 if args.check_exist_each_iter and text==[]:
                     return None, mask_logit_origin_l, None, None, None, num_l, vis_dict
-                    
-            sm, sm_mean, sm_logit, clip_vis_dict = clip_surgery(cur_image, 
-                                                                text, 
-                                                                clip_model, 
-                                                                args, device='cuda', 
-                                                                text_bg=text_bg, 
-                                                                is_visualization=is_visualization)
 
+            sm, sm_mean, sm_logit, clip_vis_dict = clip_surgery(cur_image,
+                                                                text,
+                                                                clip_model,
+                                                                args, device='cuda',
+                                                                text_bg=text_bg,
+                                                                is_visualization=is_visualization)
+            if is_visualization:
+                sm_fg_bg_l.append(255 * (clip_vis_dict['sm_fg_bg'][...,0]))
             # get positive points from individual maps (each sentence in the list), and negative points from the mean map
             points, labels, vis_radius, num = heatmap2points(sm, sm_mean, cur_image, args, is_visualization=is_visualization)
 
@@ -152,6 +154,7 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
                     'vis_mask_l': vis_mask_l,
                     'points_l': points_l,
                     'labels_l': labels_l,
+                    'sm_fg_bg_l': sm_fg_bg_l,
                     }
 
     return mask_l, mask_logit_origin_l, num_l, vis_dict
@@ -241,7 +244,6 @@ prompt_qkeys_dict={
     'TheShadow':        ['shadow'],
     'TheGlass':         ['glass'],
     'ThePolyp':         ['polyp'],
-
 
     '3attriTheBgSyn':   ['concealed animal', 'hidden animal', 'unseen animal'],
     '3attriTheBgSynCamo':   ['camouflaged animal', 'disguised animal', 'hidden animal'],
@@ -515,6 +517,47 @@ def heatmap2points(sm, sm_mean, np_img, args, attn_thr=-1, is_visualization=Fals
         vis_radius = np.concatenate(vis_radius, 0).astype('uint8')
 
     return points, labels, vis_radius, num
+
+
+def get_dir_from_args(args, parent_dir='output_img/'):
+    text_filename = f'{args.llm}Text'
+    if args.update_text:
+        text_filename += 'Update'
+    parent_dir += f'{text_filename}/'
+
+    exp_name = ''
+    exp_name += f's{args.down_sample}_thr{args.attn_thr}'
+    if args.recursive > 0:
+        exp_name += f'_rcur{args.recursive}'
+        if args.recursive_coef!=.3:
+            exp_name += f'_{args.recursive_coef}'
+    if args.rdd_str != '':
+        exp_name += f'_rdd{args.rdd_str}'
+    if args.clip_attn_qkv_strategy!='vv':
+        exp_name += f'_qkv{args.clip_attn_qkv_strategy}'
+
+    if args.clipInputEMA:  # darken
+        exp_name += f'_clipInputEMA'
+
+    if args.post_mode !='':
+        exp_name += f'_post{args.post_mode}'
+    if args.prompt_q!='Name of hidden animal in one word':
+        exp_name += f'_prompt_q{args.prompt_q}'
+        if args.use_gene_prompt:
+            exp_name += 'Gene'
+        if args.use_gene_prompt_fg:
+            exp_name += 'GeneFg'
+    if args.clip_use_bg_text:
+        exp_name += f'_{args.clip_bg_strategy}'
+
+    if args.llm=='LLaVA' and args.LLaVA_w_caption:
+        exp_name += f'_shortCaption'
+
+
+    save_path_dir = f'{parent_dir+exp_name}/'
+    printd(f'{exp_name} ({args}')
+
+    return save_path_dir
 
 
 def one_dimensional_kmeans_with_min_max(data, k, max_iterations=100):
