@@ -74,7 +74,7 @@ python main.py --config config/CHAMELEON_LLaVA.yaml --visualization    ###LLaVA
  ## Demo
  We further prepare a [jupyter notebook demo](https://github.com/jyLin8100/GenSAM/blob/main/demo_v1.ipynb) for visualization.
  1. Complete the following steps in the shell before opening the jupyter notebook. \
- The virtualenv environment named GenSAM_LLaVA needs to be created first following [Quick Start](#quick-start).
+ The virtualenv environment named GenSAM_LLaVA needs to be created first following [Quick Start](#running-gensam-on-chamelon-dataset-with-llava1llava15).
 ```
 pip install notebook 
 pip install ipykernel ipywidgets
