@@ -15,6 +15,23 @@ Code release of paper:
 * **[2023.12.12]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
 * **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is released.
 
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="framework.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        This video shows how our framework works. 
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
 <img src='supp_cod.png'>
 
 ## :bulb: Highlight
