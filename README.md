@@ -8,10 +8,12 @@ Code release of paper:
 
 <a href='https://arxiv.org/abs/2312.07374'><img src='https://img.shields.io/badge/ArXiv-2312.07374-red' /></a> 
 <a href='https://lwpyh.github.io/GenSAM/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+<a href='#demo'><img src='https://img.shields.io/badge/Replicate-Demo-violet'></a>
 
 ## :rocket: Updates
+* **[2023.12.25]** [Demo](#demo) of GenSAM is released.
 * **[2023.12.12]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
-* **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is realeased.
+* **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is released.
 
 <img src='supp_cod.png'>
 
@@ -69,6 +71,19 @@ if you want to visualize the output picture during test-time adaptation, you can
 python main.py --config config/CHAMELEON_LLaVA1.5.yaml --visualization    ###LLaVA1.5
 python main.py --config config/CHAMELEON_LLaVA.yaml --visualization    ###LLaVA
 ```
+ ## Demo
+ We further prepare a [jupyter notebook demo](https://github.com/jyLin8100/GenSAM/blob/main/demo_v1.ipynb) for visualization.
+ 1. Complete the following steps in the shell before opening the jupyter notebook. \
+ The virtualenv environment named GenSAM_LLaVA needs to be created first following [Quick Start](#quick-start).
+```
+pip install notebook 
+pip install ipykernel ipywidgets
+python -m ipykernel install --user --name GenSAM_LLaVA
+```
+ 2. Open demo_v1.ipynb and select the 'GenSAM_LLaVA' kernel in the running notebook.
+ 
+
+
 
  ## TO-DO LIST
 - [x] Update datasets and implementation scripts
