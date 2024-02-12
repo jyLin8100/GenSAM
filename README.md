@@ -14,8 +14,12 @@ Code release of paper:
 * **[2023.12.25]** [Demo](#demo) of GenSAM is released.
 * **[2023.12.12]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
 * **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is released.
-
-![Untitled](framework_GenSAM.gif)
+<p align="center">
+  <img src="demo_show.gif" width="100%" />
+</p>
+<p align="center">
+  <img src="framework_GenSAM.gif" width="100%" />
+</p>
 
 <img src='supp_cod.png'>
 
