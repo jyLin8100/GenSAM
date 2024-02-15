@@ -2,7 +2,7 @@
 
 Code release of paper:
 
-[**Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects**](https://arxiv.org/abs/)
+[**Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects**](https://arxiv.org/abs/2312.07374)
 
 [Jian Hu*](https://lwpyh.github.io/), [Jiayi Lin*](https://jylin8100.github.io/), [Weitong Cai](https://lvgd.github.io/), [Shaogang Gong](http://www.eecs.qmul.ac.uk/~sgg/)
 
