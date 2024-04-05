@@ -102,13 +102,14 @@ python -m ipykernel install --user --name GenSAM_LLaVA
 If you find our work useful in your research, please consider citing:
 
 ```
-@misc{hu2023relax,
-      title={Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects}, 
-      author={Jian Hu and Jiayi Lin and Weitong Cai and Shaogang Gong},
-      year={2023},
-      eprint={2312.07374},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{hu2024relax,
+  title={Relax Image-Specific Prompt Requirement in SAM: A Single Generic Prompt for Segmenting Camouflaged Objects},
+  author={Hu, Jian and Lin, Jiayi and Gong, Shaogang and Cai, Weitong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  number={11},
+  pages={12511--12518},
+  year={2024}
 }
 ```
 
