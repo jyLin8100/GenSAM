@@ -11,7 +11,7 @@ Code release of paper:
 <a href='#demo'><img src='https://img.shields.io/badge/Replicate-Demo-violet'></a>
 
 ## :rocket: News
-* **[2024.08.27]** Our new paper [Leveraging Hallucinations to Reduce Manual Prompt Dependency in Promptable Segmentation](https://lwpyh.github.io/ProMaC/) is released, it extends the manual-free segmentation setting to more fields, and acheives SOTA performance.
+* **[2024.08.27]** Our new paper [Leveraging Hallucinations to Reduce Manual Prompt Dependency in Promptable Segmentation](https://lwpyh.github.io/ProMaC/) (NeurIPS 2024) is released, it extends the manual-free segmentation setting to more fields, and acheives SOTA performance.
 * **[2023.12.25]** [Demo](#demo) of GenSAM is released.
 * **[2023.12.12]** Model running instructions with LLaVA1 and LLaVA1.5 are released.
 * **[2023.12.10]** LLaVA1 and LLaVA1.5 version GenSAM on CHAMELEON dataset is released.
