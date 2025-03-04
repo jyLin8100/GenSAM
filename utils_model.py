@@ -52,6 +52,7 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
     cur_image = ori_image
     if is_visualization:  vis_input_img.append(cur_image.astype('uint8'))
     with torch.no_grad():
+        flag_terminate = False
         for i in range(args.recursive+1):
             if i>=1 and args.update_text:
                 cur_image_pil=pil_img
@@ -127,6 +128,14 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
             mask_logit = F.sigmoid(torch.from_numpy(mask_logit_origin)).numpy()
 
 
+
+            if args.adaptive_recursive and i>0:
+                delta_thr = 0.003
+                prob_delta_list.append(np.mean(np.abs(mask_logit-mask_logit_l[-1])))
+                if i>1 and np.abs(prob_delta_list[-1]-prob_delta_list[-2])<delta_thr and prob_delta_list[-1]<delta_thr:
+                    print(f'End at {i} iteration')
+                    flag_terminate=True
+
             # update input image for next iter
             sm1 = sm_logit
             if args.clipInputEMA:
@@ -147,6 +156,8 @@ def get_mask(pil_img, text, sam_predictor, clip_model, args, device='cuda', llm_
             num_l.append(num)
             mask_l.append(mask)
             mask_logit_origin_l.append(mask_logit_origin)
+            if flag_terminate:
+                break
 
         if is_visualization:
             vis_dict = {
